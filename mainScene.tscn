@@ -72,9 +72,7 @@ valign = 1
 [node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
-
-frame = 5
-
+frame = 7
 playing = true
 
 [node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
@@ -110,9 +108,7 @@ valign = 1
 [node name="EnergyGIF" type="AnimatedSprite" parent="RessourceOverlay/EnergyLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 5 )
-
-frame = 11
-
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
