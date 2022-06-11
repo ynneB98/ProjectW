@@ -17,11 +17,23 @@ func _input(event):
    # Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		print("Mouse Click/Unclick at: ", event.position)
+		
+		for i in $Inventory/Items.get_children():
+			#print(i.position.x  , " ",  i.position.y)
+			#print(get_local_mouse_position())
+			if(i.position.x+24 > get_local_mouse_position().x && i.position.x-24 < get_local_mouse_position().x &&
+			 i.position.y+24 > get_local_mouse_position().y && i.position.y-24 < get_local_mouse_position().y):
+				print(i)
+			else:
+			#	print(i.position.x  , " ",  i.position.y)
+			#	print(get_local_mouse_position())
+				pass
 	elif event is InputEventMouseMotion:
-		print("Mouse Motion at: ", event.position)
+		#print("Mouse Motion at: ", event.position)
+		pass
 
 	# Print the size of the viewport.
-	print("Viewport Resolution is: ", get_viewport_rect().size)
+	#print("Viewport Resolution is: ", get_viewport_rect().size)
 
 
 # Open and close inventory menu

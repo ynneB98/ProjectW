@@ -14,7 +14,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 351.861, 40.834 )
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
-margin_left = 640.0
-margin_top = 656.0
-margin_right = 640.0
-margin_bottom = 656.0
+margin_left = 216.0
+margin_top = 576.0
+margin_right = 216.0
+margin_bottom = 576.0
