@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Ressources/images/space.jpg" type="Texture" id=1]
 [ext_resource path="res://GUI/Inventory.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://mainScene.gd" type="Script" id=4]
 [ext_resource path="res://Ressources/font/Savior1.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Ressources/images/Overlay_Sprites/Sprite_Thunder.gif" type="SpriteFrames" id=6]
+[ext_resource path="res://Ressources/images/Overlay_Sprites/Sprite_Wissenschaftspunkte.gif" type="SpriteFrames" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -86,5 +87,13 @@ align = 1
 valign = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 16, 24 )
+position = Vector2( 1144, 64 )
 frames = ExtResource( 6 )
+frame = 2
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 1144, 32 )
+frames = ExtResource( 7 )
+frame = 1
+playing = true
