@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Sprite_Menu_Button_Pressed.gif-441ffb9522815b534a5b73af861dde8f.tres"
+
+[deps]
+
+source_file="res://Ressources/images/MainMenu/Sprite_Menu_Button_Pressed.gif"
+dest_files=[ "res://.import/Sprite_Menu_Button_Pressed.gif-441ffb9522815b534a5b73af861dde8f.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false
