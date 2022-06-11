@@ -13,10 +13,10 @@ func _ready():
 	if(_error != 0):
 		push_error(_error)
 		
-
-
+		
 func _input(event):
-   # Mouse in viewport coordinates.
+	
+	# Mouse in viewport coordinates.
 	if event is InputEventMouseMotion:
 		for elem in $Inventory/Items.get_children():
 			
