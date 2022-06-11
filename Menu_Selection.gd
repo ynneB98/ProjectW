@@ -1,25 +1,19 @@
 extends Control
-<<<<<<< Updated upstream
 
 func _on_RetryGameButton_pressed():
-=======
-	#var iconLoud = preoload("res://Ressources/images/MainMenu/Sprite_Sound_Disabled.png")
+	pass
 var counter = 1
 
 func _on_StartGameButton_pressed():
->>>>>>> Stashed changes
 	get_tree().change_scene("res://mainScene.tscn")
 
 func _on_QuitGameButton_pressed():
 	get_tree().quit()
 
-<<<<<<< Updated upstream
-func _on_StartGameButton_pressed():
-	get_tree().change_scene("res://mainScene.tscn")
 
 func _on_ThingsButton_pressed():
 	get_tree().change_scene("res://things.tscn")
-=======
+
 
 func _on_Button_pressed():
 	var test1 : Button = $SoundButton 
@@ -47,4 +41,4 @@ func _on_Button_pressed():
 			counter = 1 
 	
 	
->>>>>>> Stashed changes
+
