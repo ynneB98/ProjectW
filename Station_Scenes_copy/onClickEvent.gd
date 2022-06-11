@@ -1,25 +1,20 @@
 extends Node2D
 
 signal  type
-signal  cancel_select
 var data_array = []
 var module_type
 var active_state
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	
-	if Input.is_action_just_pressed("ui_mouse_cancel"):
-		print(2)
-		EventBus.broadcast_signal("cancel_select",[module_type,active_state])
-		
 	if Input.is_action_just_pressed("ui_select_Module"):
-		EventBus.broadcast_signal("type",[module_type,active_state])
+		data_array[0] = module_type
+		data_array[1] = active_state
+		emit_signal("type", data_array)
+		EventBus.broadcast_signal("type",[module_type])
 		var clickedObject = self;
 		#print(clickedObject.module_type)
-	
-		
-		
+
 func setModuleType (module_type):
 	self.module_type = module_type
 	
