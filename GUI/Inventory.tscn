@@ -10,6 +10,8 @@ script = ExtResource( 3 )
 
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
+z_index = 100
+z_as_relative = false
 
 [node name="Items" type="Control" parent="Inventory"]
 

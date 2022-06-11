@@ -21,8 +21,6 @@ func _on_Button_pressed():
 	var test1 : Button = $SoundButton 
 	var texture = ImageTexture.new()
 	texture.set_flags(0)
-	#var test3 : AudioStreamPlayer = get_node("AudioStreamPlayer")
-	
 	
 	match counter:
 		1: 
@@ -45,6 +43,3 @@ func _on_Button_pressed():
 			Options.volume = -12
 			test3.volume_db = Options.volume 
 			counter = 1 
-	
-	
-
