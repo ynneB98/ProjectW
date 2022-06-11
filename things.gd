@@ -1,9 +1,16 @@
 extends Control
 
 onready var label : Label = $Label
+#onready var audioplayer : AudioStreamPlayer = get_node("AudioStreamPlayer")
 var size = 16
 var dynamic_font = DynamicFont.new()
-
+#func _ready():
+	#var audioplayer : AudioStreamPlayer = get_node("AudioStreamPlayer")
+	#audioplayer.volume_db = Options.volume
+	#audioplayer.playing = Options.volumeDisabled
+	#print(Options.volumeDisabled)
+	#print(Options.volume)
+	#print("klappt")
 func _input(event):
 	# Spacebar to enlarge ~THINGS~
 	if Input.is_key_pressed(KEY_SPACE):
@@ -18,3 +25,6 @@ func _input(event):
 		label.grow_vertical = Control.GROW_DIRECTION_BOTH
 		
 		label.add_font_override("font", dynamic_font)
+
+
+
