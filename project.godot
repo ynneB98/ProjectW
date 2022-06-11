@@ -24,6 +24,10 @@ config/name="ProjectW"
 run/main_scene="res://mainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EventBus="*res://EventBus.gd"
+
 [display]
 
 window/size/width=1280
