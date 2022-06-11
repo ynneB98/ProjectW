@@ -5,6 +5,7 @@ var size = 16
 var dynamic_font = DynamicFont.new()
 
 func _input(event):
+	# Spacebar to enlarge ~THINGS~
 	if Input.is_key_pressed(KEY_SPACE):
 		size += 1
 		dynamic_font.font_data = load("res://Ressources/font/Savior1.ttf")
