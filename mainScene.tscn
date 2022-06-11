@@ -16,7 +16,7 @@ font_data = ExtResource( 7 )
 script = ExtResource( 4 )
 
 [node name="Space" type="Sprite" parent="."]
-position = Vector2( 288.828, 319.862 )
+position = Vector2( 288, 320 )
 scale = Vector2( 0.999305, 0.998264 )
 texture = ExtResource( 1 )
 offset = Vector2( 351.861, 40.834 )
@@ -62,7 +62,7 @@ valign = 1
 [node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
-frame = 9
+frame = 6
 playing = true
 
 [node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
@@ -98,7 +98,7 @@ valign = 1
 [node name="EnergyGIF" type="AnimatedSprite" parent="RessourceOverlay/EnergyLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 5 )
-frame = 7
+frame = 4
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

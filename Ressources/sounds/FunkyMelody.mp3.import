@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FunkyMelody.mp3-18b1f44e4eb2686c31b744927608f0a5.mp3str"
+
+[deps]
+
+source_file="res://Ressources/sounds/FunkyMelody.mp3"
+dest_files=[ "res://.import/FunkyMelody.mp3-18b1f44e4eb2686c31b744927608f0a5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
