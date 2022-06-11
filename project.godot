@@ -29,6 +29,7 @@ window/stretch/aspect="keep"
 [autoload]
 
 EventBus="*res://EventBus.gd"
+Options="*res://Options.gd"
 
 [display]
 
