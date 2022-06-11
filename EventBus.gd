@@ -1,6 +1,6 @@
 extends Node
 
-
+signal inventory
 signal type
 signal cancel_select
 

@@ -7,6 +7,7 @@ var scene = null
 var toggle = false
 var instance
 var instance2
+var inventory_toggle
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,6 +17,7 @@ var instance2
 func _ready():
 	
 	#_onClick.connect("type",self, "ClickeventHandler")
+	EventBus.connect("inventory",self,"invent_handler")
 	EventBus.connect("type",self,"ClickEventHandler")
 	EventBus.connect("cancel_select",self,"CancelEventHandler")
 	pass # Replace with function body.

@@ -1,5 +1,7 @@
 extends Control
 
+signal inventory
+
 onready var openCloseButton : Button = $Inventory/OpenCloseButton
 onready var inventory = $Inventory
 var currentElement
@@ -11,6 +13,7 @@ func _ready():
 	if(_error != 0):
 		push_error(_error)
 		
+
 
 func _input(event):
    # Mouse in viewport coordinates.
@@ -39,6 +42,8 @@ func _input(event):
 	
 # Open and close inventory menu
 func _openCloseButton_pressed():
+	
+	EventBus.broadcast_signal("inventory",[])
 	
 	if(openCloseButton.text == "Close"):
 		openCloseButton.text = "Open"
