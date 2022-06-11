@@ -15,13 +15,13 @@ func _ready():
 
 func _input(event):
    # Mouse in viewport coordinates.
-   if event is InputEventMouseButton:
-	   print("Mouse Click/Unclick at: ", event.position)
-   elif event is InputEventMouseMotion:
-	   print("Mouse Motion at: ", event.position)
+	if event is InputEventMouseButton:
+		print("Mouse Click/Unclick at: ", event.position)
+	elif event is InputEventMouseMotion:
+		print("Mouse Motion at: ", event.position)
 
-   # Print the size of the viewport.
-   print("Viewport Resolution is: ", get_viewport_rect().size)
+	# Print the size of the viewport.
+	print("Viewport Resolution is: ", get_viewport_rect().size)
 
 
 # Open and close inventory menu
