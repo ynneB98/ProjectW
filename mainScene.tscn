@@ -64,7 +64,11 @@ valign = 1
 [node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
+<<<<<<< Updated upstream
 frame = 2
+=======
+frame = 10
+>>>>>>> Stashed changes
 playing = true
 
 [node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
