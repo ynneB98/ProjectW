@@ -26,8 +26,15 @@ func _ready():
 
 func ClickEventHandler(module_type):
 	print(module_type[0])
-	pass
-
+	if !toggle:
+		var scene_string = "res://Station_Scenes/Station_Tile_" + str(module_type[0]) + ".tscn"
+		var scene = load(scene_string)
+		instance = scene.instance()
+		add_child(instance)
+		toggle = true
+	else:
+		toggle = false
+		
 
 func _process(delta):
 
