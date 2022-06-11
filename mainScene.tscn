@@ -15,7 +15,3 @@ margin_left = 512.0
 margin_top = 536.0
 margin_right = 512.0
 margin_bottom = 536.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 1.668
-autostart = true
