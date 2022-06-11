@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Ressources/images/menuBackground.png" type="Texture" id=1]
 [ext_resource path="res://Ressources/font/Savior1.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Ressources/sounds/Title_Song.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Ressources/images/MainMenu/Sprite_Sound_Loud.png" type="Texture" id=5]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=6]
+[ext_resource path="res://Main_Menu_ButtonHovered.tres" type="StyleBox" id=7]
+[ext_resource path="res://Main_Menu_ButtonPressed.tres" type="StyleBox" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -28,6 +30,9 @@ margin_top = 272.0
 margin_right = 896.0
 margin_bottom = 336.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 text = "Start Game"
 
 [node name="ThingsButton" type="Button" parent="Menu_Selection"]
@@ -44,6 +49,9 @@ margin_top = 384.0
 margin_right = 896.0
 margin_bottom = 448.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 text = "Quit"
 
 [node name="SoundButton" type="Button" parent="Menu_Selection"]

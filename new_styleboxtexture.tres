@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[sub_resource type="AnimatedTexture" id=1]
+
+[resource]
+texture = SubResource( 1 )
+region_rect = Rect2( 0, 0, 1, 1 )
+margin_top = 67.4717
+margin_bottom = 14.4394
