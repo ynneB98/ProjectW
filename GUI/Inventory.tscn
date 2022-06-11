@@ -1,28 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GUI/Inventory_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Station_Scenes/Station_Tile_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://Station_Scenes/Station_Tile_2.tscn" type="PackedScene" id=4]
 
 [node name="InventoryMenu" type="Control"]
 script = ExtResource( 3 )
 
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
 
 [node name="Items" type="Control" parent="Inventory"]
 
 [node name="Area2D" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( -288, -16 )
-scale = Vector2( 2, 2 )
-
-[node name="Area2D2" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( -128, -16 )
+position = Vector2( -288, -8 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D3" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 128, -16 )
+position = Vector2( 128, -8 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D4" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 288, -16 )
+position = Vector2( 288, -8 )
+scale = Vector2( 2, 2 )
+
+[node name="Area2D5" parent="Inventory/Items" instance=ExtResource( 4 )]
+position = Vector2( -128, -8 )
 scale = Vector2( 2, 2 )
