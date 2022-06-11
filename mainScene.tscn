@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Ressources/images/space.jpg" type="Texture" id=1]
 [ext_resource path="res://GUI/Inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Ressources/font/Savior1.ttf" type="DynamicFontData" id=3]
-
-[sub_resource type="GDScript" id=1]
+[ext_resource path="res://mainScene.gd" type="Script" id=4]
+[ext_resource path="res://Ressources/sounds/Title_Song.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 3 )
 
 [node name="Main Scene" type="Node2D"]
-script = SubResource( 1 )
+script = ExtResource( 4 )
 
 [node name="Space" type="Sprite" parent="."]
 position = Vector2( 640.444, 360.625 )
@@ -65,3 +65,8 @@ custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true

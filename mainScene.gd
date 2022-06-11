@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var _area := $Station_Node
+onready var _area := $Inventory/Inventory/Items/Area2D
 
 var toggle = false
 # Declare member variables here. Examples:
