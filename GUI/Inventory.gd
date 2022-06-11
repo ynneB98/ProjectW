@@ -31,11 +31,14 @@ func _input(event):
 			elem.position.y+24 > get_local_mouse_position().y && elem.position.y-24 < get_local_mouse_position().y):
 				
 				if(currentElement == elem):
-				
+					
 					var currentSprite : Sprite = elem.get_children()[0]
 					var shader : Shader = load("res://Ressources/shaders/outline.tres")
 					var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 					shaderMaterial.shader = shader
+					
+					# Vektor mit 4 Komponenten (4 * 1 (255,255,255,255 -> RGBA)) = Weiße Outline
+					shaderMaterial.set_shader_param("line_color", Rect2(1,1,1,1))
 					currentSprite.material = shaderMaterial
 					
 				currentElement = elem
