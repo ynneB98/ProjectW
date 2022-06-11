@@ -12,17 +12,17 @@ script = ExtResource( 3 )
 [node name="Items" type="Control" parent="Inventory"]
 
 [node name="Area2D" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( -328, -16 )
+position = Vector2( -288, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D2" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( -144, -16 )
+position = Vector2( -128, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D3" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 112, -16 )
+position = Vector2( 128, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D4" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 304, -16 )
+position = Vector2( 288, -16 )
 scale = Vector2( 2, 2 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Sprite_Wissenschaftspunkte.gif-bee55e900b771c8823c7d729d6335cb6.tres"
+
+[deps]
+
+source_file="res://Ressources/images/Overlay_Sprites/Sprite_Wissenschaftspunkte.gif"
+dest_files=[ "res://.import/Sprite_Wissenschaftspunkte.gif-bee55e900b771c8823c7d729d6335cb6.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false

@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Sprite_Thunder.gif-13501f2bf30c747e995b149a4eaf465a.tres"
+
+[deps]
+
+source_file="res://Ressources/images/Overlay_Sprites/Sprite_Thunder.gif"
+dest_files=[ "res://.import/Sprite_Thunder.gif-13501f2bf30c747e995b149a4eaf465a.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false
