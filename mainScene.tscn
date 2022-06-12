@@ -44,10 +44,10 @@ size = 32
 font_data = ExtResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 24 )
+extents = Vector2( 27, 27 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1.5, 4 )
+extents = Vector2( 2, 3 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -57,7 +57,7 @@ modulate = Color( 0.75, 0.75, 0.75, 1 )
 position = Vector2( 640.623, 360.125 )
 scale = Vector2( 2.50174, 2.49913 )
 frames = SubResource( 4 )
-frame = 15
+frame = 16
 playing = true
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
@@ -102,7 +102,7 @@ valign = 1
 [node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
@@ -138,7 +138,7 @@ valign = 1
 [node name="EnergyGIF" type="AnimatedSprite" parent="RessourceOverlay/EnergyLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 5 )
-frame = 2
+frame = 11
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -154,34 +154,32 @@ script = ExtResource( 11 )
 [node name="ModuleGroup" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="ModuleGroup"]
-position = Vector2( 744, 312 )
+position = Vector2( 558, 342 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ModuleGroup/Area2D"]
-position = Vector2( -104, 8 )
 frames = ExtResource( 10 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Modul_Collision" type="CollisionShape2D" parent="ModuleGroup/Area2D"]
-position = Vector2( -104, 8 )
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="ModuleGroup/Area2D"]
 
 [node name="Connection_Left" type="CollisionShape2D" parent="ModuleGroup/Area2D/Area2D"]
-position = Vector2( -129.5, 8 )
+position = Vector2( -27, 0 )
 shape = SubResource( 3 )
 
 [node name="Connection_Right" type="CollisionShape2D" parent="ModuleGroup/Area2D/Area2D"]
-position = Vector2( -78.5, 8 )
+position = Vector2( 27, 0 )
 shape = SubResource( 3 )
 
 [node name="Connection_Top" type="CollisionShape2D" parent="ModuleGroup/Area2D/Area2D"]
-position = Vector2( -104, -17.5 )
+position = Vector2( 0, -27 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Connection_Bottom" type="CollisionShape2D" parent="ModuleGroup/Area2D/Area2D"]
-position = Vector2( -104, 33.5 )
+position = Vector2( 0, 27 )
 rotation = 1.5708
 shape = SubResource( 3 )

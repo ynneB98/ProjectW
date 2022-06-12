@@ -11,15 +11,17 @@ position = Vector2( 27, 27 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.200001, 0.200001 )
 frames = ExtResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -3, -2 )
+position = Vector2( -2.8, -1.8 )
 polygon = PoolVector2Array( -24, -7, -6, -7, -6, 11, -24, 11, -24, 29, 30, 29, 30, 11, 12, 11, 12, -7, 30, -7, 30, -25, -24, -25 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0.200001, 0.200001 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 27 )

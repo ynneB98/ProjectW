@@ -27,8 +27,8 @@ func _input(event):
 				
 				currentElement = elem
 				
-			if(elem.position.x+24 > get_local_mouse_position().x && elem.position.x-24 < get_local_mouse_position().x && 
-			elem.position.y+24 > get_local_mouse_position().y && elem.position.y-24 < get_local_mouse_position().y):
+			if(elem.position.x+36 > get_local_mouse_position().x && elem.position.x-36 < get_local_mouse_position().x && 
+			elem.position.y+36 > get_local_mouse_position().y && elem.position.y-36 < get_local_mouse_position().y):
 				
 				if(currentElement == elem):
 					

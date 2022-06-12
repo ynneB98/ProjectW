@@ -10,21 +10,19 @@ extents = Vector2( 9, 18 )
 extents = Vector2( 4, 2 )
 
 [node name="Area2D" type="Area2D"]
-position = Vector2( 9, 20 )
+position = Vector2( 27, 27 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 18, 7 )
 frames = ExtResource( 1 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 18, 16 )
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( -11, 16 )
+position = Vector2( -29, 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 29, -18 )

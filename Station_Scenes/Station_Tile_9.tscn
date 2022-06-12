@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Finale Modulassets/2_Mod4.gif" type="SpriteFrames" id=1]
-[ext_resource path="res://Station_Scenes/Station_Tile_8.gd" type="Script" id=2]
+[ext_resource path="res://Station_Scenes/Station_Tile_9.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2, 3 )
