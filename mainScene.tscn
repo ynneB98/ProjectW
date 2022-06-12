@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Ressources/images/SpaceBackgroud/backgroud12.png" type="Texture" id=1]
 [ext_resource path="res://GUI/Inventory.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Ressources/images/SpaceBackgroud/backgroud5.png" type="Texture" id=28]
 [ext_resource path="res://Ressources/images/SpaceBackgroud/backgroud9.png" type="Texture" id=29]
 [ext_resource path="res://Ressources/images/SpaceBackgroud/backgroud6.png" type="Texture" id=30]
+[ext_resource path="res://Camera2D.gd" type="Script" id=31]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -52,24 +53,34 @@ extents = Vector2( 1.5, 4 )
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Space" type="AnimatedSprite" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 2.38419e-07, 0 )
+scale = Vector2( 1.60795, 2.34706 )
+current = true
+script = ExtResource( 31 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+scroll_ignore_camera_zoom = true
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Space" type="AnimatedSprite" parent="Camera2D/ParallaxBackground/BackgroundLayer"]
 modulate = Color( 0.75, 0.75, 0.75, 1 )
-position = Vector2( 640.623, 360.125 )
+position = Vector2( 6.10352e-05, 3.05176e-05 )
 scale = Vector2( 2.50174, 2.49913 )
 frames = SubResource( 4 )
-frame = 9
+frame = 14
 playing = true
 
-[node name="Inventory" parent="." instance=ExtResource( 2 )]
-margin_left = 640.0
-margin_top = 656.0
-margin_right = 640.0
-margin_bottom = 656.0
+[node name="RessourceLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
 
-[node name="RessourceOverlay" type="Node2D" parent="."]
-position = Vector2( 1088, 32 )
+[node name="RessourceOverlay" type="Node2D" parent="Camera2D/ParallaxBackground/RessourceLayer"]
+position = Vector2( 495, -314 )
+scale = Vector2( 1, 1 )
 
-[node name="ScoreLabel" type="Label" parent="RessourceOverlay"]
+[node name="ScoreLabel" type="Label" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay"]
 margin_left = 24.0
 margin_top = -8.0
 margin_right = 88.0
@@ -85,7 +96,7 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="ScoreCount" type="Label" parent="RessourceOverlay/ScoreLabel"]
+[node name="ScoreCount" type="Label" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay/ScoreLabel"]
 margin_left = 80.0
 margin_right = 112.0
 margin_bottom = 26.0
@@ -99,13 +110,13 @@ text = "0"
 align = 1
 valign = 1
 
-[node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
+[node name="ScoreGIF" type="AnimatedSprite" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
-frame = 11
+frame = 10
 playing = true
 
-[node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
+[node name="EnergyLabel" type="Label" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay"]
 margin_left = 24.0
 margin_top = 24.0
 margin_right = 100.0
@@ -121,7 +132,7 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="EnergyCount" type="Label" parent="RessourceOverlay/EnergyLabel"]
+[node name="EnergyCount" type="Label" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay/EnergyLabel"]
 margin_left = 80.0
 margin_right = 112.0
 margin_bottom = 26.0
@@ -135,11 +146,19 @@ text = "0"
 align = 1
 valign = 1
 
-[node name="EnergyGIF" type="AnimatedSprite" parent="RessourceOverlay/EnergyLabel"]
+[node name="EnergyGIF" type="AnimatedSprite" parent="Camera2D/ParallaxBackground/RessourceLayer/RessourceOverlay/EnergyLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 5 )
-frame = 5
+frame = 4
 playing = true
+
+[node name="InventoryLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Inventory" parent="Camera2D/ParallaxBackground/InventoryLayer" instance=ExtResource( 2 )]
+margin_top = 312.0
+margin_bottom = 312.0
+rect_scale = Vector2( 0.58643, 0.497435 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -152,6 +171,7 @@ script = ExtResource( 11 )
 [node name="event_Handler" parent="." instance=ExtResource( 9 )]
 
 [node name="ModuleGroup" type="Node2D" parent="."]
+position = Vector2( -630, -365 )
 
 [node name="Area2D" type="Area2D" parent="ModuleGroup"]
 position = Vector2( 744, 312 )
@@ -159,7 +179,7 @@ position = Vector2( 744, 312 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ModuleGroup/Area2D"]
 position = Vector2( -104, 8 )
 frames = ExtResource( 10 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Modul_Collision" type="CollisionShape2D" parent="ModuleGroup/Area2D"]
@@ -185,3 +205,5 @@ shape = SubResource( 3 )
 position = Vector2( -104, 33.5 )
 rotation = 1.5708
 shape = SubResource( 3 )
+
+[connection signal="draw" from="Camera2D" to="." method="_on_Camera2D_draw"]
