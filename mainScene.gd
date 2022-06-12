@@ -10,7 +10,6 @@ var instance2
 var inventory_toggle = true 
 var rotation_safe = 0
 var elapsed = 0
-var is_rotating = 0
 var lastClickedElement
 var isPlacable 
 var currentLocation = Vector2(0,0)
@@ -30,11 +29,6 @@ func _ready():
 	EventBus.connect("type",self,"ClickEventHandler")
 	EventBus.connect("cancel_select",self,"CancelEventHandler")
 	pass # Replace with function body.
-
-#func grid_snap() -> void:
-#	yield(_input(event), "completed")
-#	var mouse_pos: Vector2 = get_global_mouse_position()
-#	_area.position = Vector2(stepify(mouse_pos.x,128),stepify(mouse_pos.y,128))
 
 func invent_handler():
 	inventory_toggle =  !inventory_toggle
@@ -78,10 +72,6 @@ func ClickEventHandler(module_type):
 				var scene_string = "res://Station_Scenes_copy/Station_Tile_" + str(module_type[0]) + ".tscn"
 				var scene = load(scene_string)
 				instance2 = scene.instance()
-				
-				print (energy)
-				print(instance2.energy)
-				
 				
 				#Score + Energyverwaltung
 				if(energy >= (instance2.energy * -1)):
@@ -145,12 +135,8 @@ func _process(delta):
 						var localY
 						var localX 
 						
-						if(is_rotating == 0):
-							localY = instanceColli.position.y
-							localX = instanceColli.position.x
-						else:
-							localY = instanceColli.position.x
-							localX = instanceColli.position.y
+						localY = instanceColli.position.y
+						localX = instanceColli.position.x
 												
 						if(instanceColli.get_parent().get_parent().global_position.y + localY  == y && 
 							instanceColli.get_parent().get_parent().global_position.x + localX  == x):
@@ -159,7 +145,6 @@ func _process(delta):
 							isPlacable = true
 							
 							currentLocation = instance.position							
-							
 								
 							#Grüne Outline
 							var currentSprite = instance.get_children()[0]
@@ -172,7 +157,6 @@ func _process(delta):
 						
 						elif(currentLocation != instance.position):
 							
-							#print("BOO")
 							
 							isPlacable = false
 							
@@ -189,11 +173,26 @@ func _process(delta):
 		
 		instance.rotation  += PI/2
 		rotation_safe += PI/2
-		if(is_rotating == 1):
-			is_rotating = 0
-		else:
-			is_rotating = 1
 		currentLocation = Vector2(0,0)
+		
+		for collision in instance.get_child(2).get_children():
+			var distance_x = collision.position.x 
+			var distance_y = collision.position.y
+			
+			var new_distance_y = 0
+			var new_distance_x = 0
+			
+			
+			#Move By other offset to fake rotation
+			collision.position = Vector2(distance_y*-1,distance_x)
+			pass
+		
+		print("instance Rotation",instance.rotation)
+		print("Get_Child 2 Rotation",instance.get_child(2).rotation)
+		
+		print("x / y")
+		print(instance.get_child(2).get_child(0).position.x)
+		print(instance.get_child(2).get_child(0).position.y)
 		pass
 	
 
