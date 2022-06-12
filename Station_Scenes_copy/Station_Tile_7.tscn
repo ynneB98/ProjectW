@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Finale Modulassets/1_Mod4.gif" type="SpriteFrames" id=1]
-[ext_resource path="res://Station_Scenes/Station_Tile_6.gd" type="Script" id=2]
+[ext_resource path="res://Station_Scenes_copy/Station_Tile_7.gd" type="Script" id=2]
 [ext_resource path="res://Ressources/images/54x54.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 2 )
 
 [node name="Area2D2" type="Area2D"]
-position = Vector2( 24, 24 )
+position = Vector2( 27, 27 )
 script = ExtResource( 2 )
 
 [node name="54X54" type="Sprite" parent="."]
@@ -17,16 +17,16 @@ position = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 3, 3 )
+position = Vector2( 0.200001, 0.200001 )
 frames = ExtResource( 1 )
-frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 2, 0 )
+position = Vector2( -0.799999, -2.8 )
 polygon = PoolVector2Array( -26, -24, -26, 30, -8, 30, -8, -6, 28, -6, 28, -24 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -2.8, -2.8 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -15, 30 )

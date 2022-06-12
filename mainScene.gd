@@ -65,7 +65,7 @@ func ClickEventHandler(module_type):
 			var scene = load(scene_string)
 			instance2 = scene.instance()
 			self.find_node("ModuleGroup").add_child(instance2)
-			instance2.position = Vector2(stepify(mouse_pos.x,16),stepify(mouse_pos.y,16))
+			instance2.position = Vector2(stepify(mouse_pos.x,18),stepify(mouse_pos.y,18))
 			instance2.rotation = rotation_safe
 			rotation_safe = 0
 			
@@ -148,6 +148,6 @@ func _process(delta):
 
 	if toggle:
 		var mouse_pos: Vector2 = get_global_mouse_position()
-		instance.position = Vector2(stepify(mouse_pos.x,16),stepify(mouse_pos.y,16))
+		instance.position = Vector2(stepify(mouse_pos.x,18),stepify(mouse_pos.y,18))
 		
 		
