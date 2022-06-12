@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Ressources/sounds/FunkyMelody.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Ressources/font/Savior1.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Menu_Selection.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/GUI/Main_Menu_Hintergrund.png" type="Texture" id=4]
 [ext_resource path="res://mute_button_styles/mutelaut_pressed.tres" type="StyleBox" id=5]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=6]
 [ext_resource path="res://menu_buttons_styles/quitbutton_hover.tres" type="StyleBox" id=7]
@@ -22,12 +23,9 @@ font_data = ExtResource( 2 )
 [node name="Main_Menu" type="Node2D"]
 
 [node name="MenuBackground" type="Sprite" parent="."]
-position = Vector2( 643, 358 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 384, 296 )
-scale = Vector2( 2.64286, 2.64286 )
-frames = ExtResource( 15 )
+position = Vector2( 640, 360 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 4 )
 
 [node name="Menu_Selection" type="Control" parent="."]
 margin_right = 24.0
@@ -40,15 +38,30 @@ volume_db = -12.0
 autoplay = true
 script = ExtResource( 6 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu_Selection"]
+position = Vector2( 380, 317.929 )
+scale = Vector2( 2.64286, 2.64286 )
+frames = ExtResource( 15 )
+
 [node name="StartGameButton" type="Button" parent="Menu_Selection"]
-margin_left = 288.0
-margin_top = 128.0
-margin_right = 477.0
-margin_bottom = 182.0
+margin_left = 284.0
+margin_top = 149.929
+margin_right = 473.0
+margin_bottom = 203.929
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 12 )
 custom_styles/pressed = ExtResource( 11 )
 custom_styles/normal = ExtResource( 13 )
+
+[node name="QuitGameButton" type="Button" parent="Menu_Selection"]
+margin_left = 284.0
+margin_top = 213.929
+margin_right = 389.0
+margin_bottom = 267.929
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 14 )
 
 [node name="ThingsButton" type="Button" parent="Menu_Selection"]
 margin_top = 675.0
@@ -58,28 +71,18 @@ custom_fonts/font = SubResource( 1 )
 text = "Things"
 flat = true
 
-[node name="QuitGameButton" type="Button" parent="Menu_Selection"]
-margin_left = 288.0
-margin_top = 192.0
-margin_right = 393.0
-margin_bottom = 246.0
-custom_fonts/font = SubResource( 1 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/normal = ExtResource( 14 )
-
 [node name="SoundButton" type="Button" parent="Menu_Selection"]
-margin_left = 1048.0
-margin_top = 584.0
-margin_right = 1073.0
-margin_bottom = 600.0
-rect_scale = Vector2( 4.24231, 3.5164 )
+margin_left = 408.0
+margin_top = 440.0
+margin_right = 433.0
+margin_bottom = 456.0
+rect_scale = Vector2( 3, 3 )
 custom_styles/hover = ExtResource( 10 )
 custom_styles/pressed = ExtResource( 5 )
 custom_styles/normal = ExtResource( 9 )
 align = 0
 
 [connection signal="pressed" from="Menu_Selection/StartGameButton" to="Menu_Selection" method="_on_StartGameButton_pressed"]
-[connection signal="pressed" from="Menu_Selection/ThingsButton" to="Menu_Selection" method="_on_ThingsButton_pressed"]
 [connection signal="pressed" from="Menu_Selection/QuitGameButton" to="Menu_Selection" method="_on_QuitGameButton_pressed"]
+[connection signal="pressed" from="Menu_Selection/ThingsButton" to="Menu_Selection" method="_on_ThingsButton_pressed"]
 [connection signal="pressed" from="Menu_Selection/SoundButton" to="Menu_Selection" method="_on_Button_pressed"]
