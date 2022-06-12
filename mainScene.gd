@@ -9,7 +9,7 @@ var instance
 var instance2
 var inventory_toggle = true 
 var rotation_safe = 0
-
+var elapsed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -67,45 +67,76 @@ func ClickEventHandler(module_type):
 			instance2.rotation = rotation_safe
 			rotation_safe = 0
 			
-			var vecInstance : Vector2 = Vector2(instance.position.x, instance.position.y)
-			var instanceCollisions = instance.get_child(2).get_children()
 			
-			
-			# Prüfung auf Kollision, ansonsten Instance = roter Shader, wenn passt = grüner Shader
-			for module in self.find_node("ModuleGroup").get_children():
-			
-				var vec2 : Vector2 = Vector2(module.position.x, module.position.y) 
-				
-				var distance = vecInstance.distance_to(vec2)
-				
-				if(distance <= 100):
-					
-					var i = 1
-					
-					for collision in module.get_child(2).get_children():
-						
-						print("Aktueller Vergleich: " , i)
-						i += 1
-						
-						var colli : CollisionShape2D = collision
-						
-						var x = colli.global_position.x
-						var y = colli.global_position.y
-						
-						for instanceColli in instanceCollisions:
-							
-							if(instanceColli.get_parent().get_parent().global_position.y + instanceColli.position.y  == y && 
-							instanceColli.get_parent().get_parent().global_position.x + instanceColli.position.x  == x):
-								print("YIPPIE")
-								break
-					
-					pass
 			
 			
 			
 			
 func _process(delta):
- 
+	
+	elapsed += delta
+	
+	if elapsed >  0.05 && toggle:
+		elapsed  = 0
+		var vecInstance : Vector2 = Vector2(instance.position.x, instance.position.y)
+		var instanceCollisions = instance.get_child(2).get_children()
+			
+			
+		# Prüfung auf Kollision, ansonsten Instance = roter Shader, wenn passt = grüner Shader
+		for module in self.find_node("ModuleGroup").get_children():
+			
+			var vec2 : Vector2 = Vector2(module.position.x, module.position.y) 
+				
+			var distance = vecInstance.distance_to(vec2)
+				
+			if(distance <= 75):
+					
+				var i = 1
+					
+				for collision in module.get_child(2).get_children():
+						
+					print("Aktueller Vergleich: " , i)
+					i += 1
+						
+					var colli : CollisionShape2D = collision
+						
+					var x = colli.global_position.x
+					var y = colli.global_position.y
+						
+					for instanceColli in instanceCollisions:
+							
+						if(instanceColli.get_parent().get_parent().global_position.y + instanceColli.position.y  == y && 
+							instanceColli.get_parent().get_parent().global_position.x + instanceColli.position.x  == x):
+							print("YIPPIE")
+						#
+						#Do some Magic
+						#
+								
+							var currentSprite : Sprite = instance.get_children()[0]
+							var shader : Shader = load("res://Ressources/shaders/outline_green.tres")
+							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
+							shaderMaterial.shader = shader
+					
+							# Vektor mit 4 Komponenten (4 * 1 (255,255,255,255 -> RGBA)) = Weiße Outline
+							
+							currentSprite.material = shaderMaterial
+								
+							break
+						
+						else:
+							
+							var currentSprite : Sprite = instance.get_children()[0]
+							var shader : Shader = load("res://Ressources/shaders/outline_red.tres")
+							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
+							shaderMaterial.shader = shader
+					
+							# Vektor mit 4 Komponenten (4 * 1 (255,255,255,255 -> RGBA)) = Weiße Outline
+							
+							currentSprite.material = shaderMaterial
+					
+				pass
+		
+	
 	if Input.is_action_just_pressed("ui_Module_rotation"):
 		instance.rotation  += PI/2
 		rotation_safe += PI/2
@@ -117,8 +148,6 @@ func _process(delta):
 		instance.position = Vector2(stepify(mouse_pos.x,16),stepify(mouse_pos.y,16))
 		
 		
-					
-			
 		
 		#print(getSnapPositionY)
 		#print(getSnapPositionX)
