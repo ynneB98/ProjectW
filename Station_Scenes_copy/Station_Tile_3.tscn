@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Finale Modulassets/2_Mod2.gif" type="SpriteFrames" id=1]
-[ext_resource path="res://Station_Scenes_copy/Station_Tile_2.gd" type="Script" id=2]
+[ext_resource path="res://Station_Scenes_copy/Station_Tile_3.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 24 )
@@ -15,7 +15,6 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

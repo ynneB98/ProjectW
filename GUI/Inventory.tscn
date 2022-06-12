@@ -16,17 +16,18 @@ z_as_relative = false
 [node name="Items" type="Control" parent="Inventory"]
 
 [node name="Area2D" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( -288, -8 )
+position = Vector2( -288, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D3" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 128, -8 )
+position = Vector2( 128, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D4" parent="Inventory/Items" instance=ExtResource( 2 )]
-position = Vector2( 288, -8 )
+position = Vector2( 288, -16 )
 scale = Vector2( 2, 2 )
 
 [node name="Area2D5" parent="Inventory/Items" instance=ExtResource( 4 )]
-position = Vector2( -128, -8 )
+position = Vector2( -104, 0 )
+rotation = 1.57079
 scale = Vector2( 2, 2 )
