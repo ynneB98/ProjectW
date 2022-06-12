@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Menu_Statisch_Anim.gif-b4f76e603919d0d542d8fa5bf1c340fd.tres"
+
+[deps]
+
+source_file="res://Sprites/GUI/Menu_Statisch_Anim.gif"
+dest_files=[ "res://.import/Menu_Statisch_Anim.gif-b4f76e603919d0d542d8fa5bf1c340fd.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false

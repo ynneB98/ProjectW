@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Menu_Fade_Anim.gif-1c32a41e0614572522992261f45b6104.tres"
+
+[deps]
+
+source_file="res://Sprites/GUI/Menu_Fade_Anim.gif"
+dest_files=[ "res://.import/Menu_Fade_Anim.gif-1c32a41e0614572522992261f45b6104.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false
