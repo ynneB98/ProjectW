@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Finale Modulassets/3_Mod1.gif" type="SpriteFrames" id=1]
+[ext_resource path="res://Station_Scenes/Station_Tile_8.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2, 3 )
+
+[node name="Area2D2" type="Area2D"]
+position = Vector2( 24, 24 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3, 3 )
+frames = ExtResource( 1 )
+frame = 2
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( -24, -7, -24, 11, -6, 11, -6, 29, 12, 29, 12, 11, 30, 11, 30, -7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -24, 3 )
+rotation = 3.14159
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 30, 3 )
+rotation = 3.14159
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 3, 30 )
+rotation = 1.57079
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="." to="." method="_on_Area2D_input_event"]
