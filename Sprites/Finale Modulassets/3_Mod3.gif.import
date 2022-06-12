@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/3_Mod3.gif-54c8e0212a91b0bfcb0ca7cfaf427f32.tres"
+
+[deps]
+
+source_file="res://Sprites/Finale Modulassets/3_Mod3.gif"
+dest_files=[ "res://.import/3_Mod3.gif-54c8e0212a91b0bfcb0ca7cfaf427f32.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false

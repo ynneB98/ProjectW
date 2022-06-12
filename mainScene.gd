@@ -30,6 +30,7 @@ func invent_handler():
 
 func CancelEventHandler(module_type):
 	self.remove_child(instance)
+	toggle = false
 
 func ClickEventHandler(module_type):
 
@@ -73,15 +74,18 @@ func ClickEventHandler(module_type):
 			# Prüfung auf Kollision, ansonsten Instance = roter Shader, wenn passt = grüner Shader
 			for module in self.find_node("ModuleGroup").get_children():
 			
-				var test : Area2D = module
 				var vec2 : Vector2 = Vector2(module.position.x, module.position.y) 
 				
 				var distance = vecInstance.distance_to(vec2)
 				
-				if(distance <= 150):
+				if(distance <= 100):
+					
+					var i = 1
 					
 					for collision in module.get_child(2).get_children():
 						
+						print("Aktueller Vergleich: " , i)
+						i += 1
 						
 						var colli : CollisionShape2D = collision
 						
@@ -90,12 +94,10 @@ func ClickEventHandler(module_type):
 						
 						for instanceColli in instanceCollisions:
 							
-							print("\n")
-							print(y)
-							print(instanceColli.global_position.y)
-							
-							if(instanceColli.global_position.y == y ):
+							if(instanceColli.get_parent().get_parent().global_position.y + instanceColli.position.y  == y && 
+							instanceColli.get_parent().get_parent().global_position.x + instanceColli.position.x  == x):
 								print("YIPPIE")
+								break
 					
 					pass
 			
@@ -117,9 +119,6 @@ func _process(delta):
 		
 					
 			
-		
-		var getSnapPositionY = instance.global_position.y
-		var getSnapPositionX = instance.global_position.x
 		
 		#print(getSnapPositionY)
 		#print(getSnapPositionX)
