@@ -9,10 +9,6 @@ var instance
 var instance2
 var inventory_toggle = true 
 var rotation_safe = 0
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,14 +61,47 @@ func ClickEventHandler(module_type):
 			var scene_string = "res://Station_Scenes_copy/Station_Tile_" + str(module_type[0]) + ".tscn"
 			var scene = load(scene_string)
 			instance2 = scene.instance()
-			add_child(instance2)
+			self.find_node("ModuleGroup").add_child(instance2)
 			instance2.position = Vector2(stepify(mouse_pos.x,16),stepify(mouse_pos.y,16))
 			instance2.rotation = rotation_safe
 			rotation_safe = 0
 			
+			var vecInstance : Vector2 = Vector2(instance.position.x, instance.position.y)
+			var instanceCollisions = instance.get_child(2).get_children()
 			
-		
-
+			
+			# Prüfung auf Kollision, ansonsten Instance = roter Shader, wenn passt = grüner Shader
+			for module in self.find_node("ModuleGroup").get_children():
+			
+				var test : Area2D = module
+				var vec2 : Vector2 = Vector2(module.position.x, module.position.y) 
+				
+				var distance = vecInstance.distance_to(vec2)
+				
+				if(distance <= 150):
+					
+					for collision in module.get_child(2).get_children():
+						
+						
+						var colli : CollisionShape2D = collision
+						
+						var x = colli.global_position.x
+						var y = colli.global_position.y
+						
+						for instanceColli in instanceCollisions:
+							
+							print("\n")
+							print(y)
+							print(instanceColli.global_position.y)
+							
+							if(instanceColli.global_position.y == y ):
+								print("YIPPIE")
+					
+					pass
+			
+			
+			
+			
 func _process(delta):
  
 	if Input.is_action_just_pressed("ui_Module_rotation"):
@@ -84,4 +113,15 @@ func _process(delta):
 	if toggle:
 		var mouse_pos: Vector2 = get_global_mouse_position()
 		instance.position = Vector2(stepify(mouse_pos.x,16),stepify(mouse_pos.y,16))
-
+		
+		
+					
+			
+		
+		var getSnapPositionY = instance.global_position.y
+		var getSnapPositionX = instance.global_position.x
+		
+		#print(getSnapPositionY)
+		#print(getSnapPositionX)
+		
+		
