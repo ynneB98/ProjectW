@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Ressources/sounds/FunkyMelody.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Ressources/font/Savior1.ttf" type="DynamicFontData" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://menu_buttons_styles/thingsbutton_hover.tres" type="StyleBox" id=17]
 [ext_resource path="res://menu_buttons_styles/thingsbutton_pressed.tres" type="StyleBox" id=18]
 [ext_resource path="res://Sprites/Main_Logo.png" type="Texture" id=19]
+[ext_resource path="res://menu_buttons_styles/creditsbutton_normal.tres" type="StyleBox" id=20]
+[ext_resource path="res://menu_buttons_styles/creditsbutton_pressed.tres" type="StyleBox" id=21]
+[ext_resource path="res://menu_buttons_styles/creditsbutton_hover.tres" type="StyleBox" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -57,10 +60,10 @@ scale = Vector2( 2.64286, 2.64286 )
 frames = ExtResource( 15 )
 
 [node name="StartGameButton" type="Button" parent="Menu_Selection"]
-margin_left = 252.0
-margin_top = 133.929
-margin_right = 441.0
-margin_bottom = 187.929
+margin_left = 256.0
+margin_top = 136.0
+margin_right = 445.0
+margin_bottom = 190.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 12 )
 custom_styles/pressed = ExtResource( 11 )
@@ -69,9 +72,9 @@ custom_styles/normal = ExtResource( 13 )
 
 [node name="QuitGameButton" type="Button" parent="Menu_Selection"]
 margin_left = 256.0
-margin_top = 280.0
+margin_top = 352.0
 margin_right = 361.0
-margin_bottom = 334.0
+margin_bottom = 406.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 8 )
@@ -101,13 +104,18 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/normal = ExtResource( 9 )
 align = 0
 
-[node name="BackButton" type="Button" parent="Menu_Selection"]
-margin_left = -88.0
-margin_top = 40.0
-margin_right = -28.0
-margin_bottom = 60.0
+[node name="CreditsButton" type="Button" parent="Menu_Selection"]
+margin_left = 256.0
+margin_top = 280.0
+margin_right = 305.0
+margin_bottom = 298.0
+rect_scale = Vector2( 3, 3 )
+custom_styles/hover = ExtResource( 22 )
+custom_styles/pressed = ExtResource( 21 )
+custom_styles/normal = ExtResource( 20 )
 
 [connection signal="pressed" from="Menu_Selection/StartGameButton" to="Menu_Selection" method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="Menu_Selection/QuitGameButton" to="Menu_Selection" method="_on_QuitGameButton_pressed"]
 [connection signal="pressed" from="Menu_Selection/ThingsButton" to="Menu_Selection" method="_on_ThingsButton_pressed"]
 [connection signal="pressed" from="Menu_Selection/SoundButton" to="Menu_Selection" method="_on_Button_pressed"]
+[connection signal="pressed" from="Menu_Selection/CreditsButton" to="Menu_Selection" method="_on_CreditsButton_pressed"]

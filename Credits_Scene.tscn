@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/GUI/Menu_Statisch_Anim.gif" type="SpriteFrames" id=1]
+[ext_resource path="res://Sprites/GUI/Main_Menu_Hintergrund.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Main_Logo.png" type="Texture" id=3]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=4]
+[ext_resource path="res://Credits_Menu.gd" type="Script" id=5]
+[ext_resource path="res://Ressources/sounds/FunkyMelody.mp3" type="AudioStream" id=6]
+[ext_resource path="res://menu_buttons_styles/backbutton_pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://menu_buttons_styles/backbutton_normal.tres" type="StyleBox" id=8]
+[ext_resource path="res://menu_buttons_styles/backbutton_hover.tres" type="StyleBox" id=9]
+[ext_resource path="res://Sprites/GUI/Credits/Credits_nurText.png" type="Texture" id=10]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MenuBackground" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 880, 160 )
+scale = Vector2( 2.29082, 2.29082 )
+texture = ExtResource( 3 )
+
+[node name="Menu_Selection" type="Control" parent="."]
+margin_right = 24.0
+margin_bottom = 24.0
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu_Selection"]
+stream = ExtResource( 6 )
+volume_db = -12.0
+autoplay = true
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu_Selection"]
+position = Vector2( 348, 301.929 )
+scale = Vector2( 2.64286, 2.64286 )
+frames = ExtResource( 1 )
+
+[node name="BackButton" type="Button" parent="Menu_Selection"]
+margin_left = 320.0
+margin_top = 416.0
+margin_right = 341.0
+margin_bottom = 434.0
+rect_scale = Vector2( 3, 3 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
+
+[node name="Credits" type="Sprite" parent="Menu_Selection"]
+position = Vector2( 346, 220 )
+scale = Vector2( 2.29082, 2.29082 )
+texture = ExtResource( 10 )
+
+[connection signal="pressed" from="Menu_Selection/BackButton" to="Menu_Selection" method="_on_BackButton_pressed"]

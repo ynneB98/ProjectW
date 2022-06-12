@@ -64,3 +64,7 @@ func _on_Button_pressed():
 			Options.volume = -12
 			test3.volume_db = Options.volume 
 			counter = 1 
+
+
+func _on_CreditsButton_pressed():
+	get_tree().change_scene("res://Credits_Scene.tscn")
