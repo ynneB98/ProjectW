@@ -3,7 +3,7 @@ onready var test3 : AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 
 func _on_RetryGameButton_pressed():
-	pass
+	get_tree().change_scene("res://mainScene.tscn")
 var counter = 1
 
 func _on_StartGameButton_pressed():

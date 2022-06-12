@@ -6,6 +6,8 @@ var data_array = []
 var module_type
 var active_state
 var station_type
+var energy
+var score
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	
@@ -19,10 +21,12 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 func setModuleType (module_type):
 	self.module_type = module_type
 		
-func _init(_module_type = 0, _active_state = 0, _station_type = 0).():
+func _init(_module_type = 0, _active_state = 0, _station_type = 0, _energy = 0, _score = 0).():
 	module_type = _module_type
 	active_state = _active_state
-	station_type = _station_type
+	station_type = _station_type 
+	energy = _energy
+	score = _score
 
 
 #Station Type 0 = Forschungspunkte
