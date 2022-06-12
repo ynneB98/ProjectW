@@ -14,7 +14,7 @@ func _ready():
 	else:
 		self.set_stream_paused(false)
 	 #Options.volumeDisabled
-	print(self.is_playing())
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

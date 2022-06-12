@@ -5,12 +5,17 @@ onready var _onClick = get_node('_onClick')
 
 var scene = null
 var toggle = false
-var instance
+var instance : Area2D
 var instance2
 var inventory_toggle = true 
 var rotation_safe = 0
 var elapsed = 0
 var is_rotating = 0
+var lastClickedElement
+var isPlacable 
+var currentLocation = Vector2(0,0)
+
+var childrenPosition = [-312,-104,104,312]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,8 +40,11 @@ func CancelEventHandler(module_type):
 	toggle = false
 
 func ClickEventHandler(module_type):
-
+	
 	if !toggle:
+		
+		lastClickedElement = module_type[2]
+		
 		if module_type[1] == 1:
 			var scene_string = "res://Station_Scenes/Station_Tile_" + str(module_type[0]) + ".tscn"
 			var scene = load(scene_string)
@@ -56,25 +64,32 @@ func ClickEventHandler(module_type):
 		if (inventory_toggle && mouse_pos.x > inv_x_pos-(inv_x/2) && mouse_pos.x < inv_x_pos+(inv_x/2) && 
 		mouse_pos.y > inv_y_pos-(inv_y/2) && mouse_pos.y < inv_y_pos+(inv_y/2) && buttonState == "Close"):
 			
+			print("IST INVENTAR :(")
 			pass
 			
 		else: 
-			self.remove_child(instance)
-			toggle = false
-			var scene_string = "res://Station_Scenes_copy/Station_Tile_" + str(module_type[0]) + ".tscn"
-			var scene = load(scene_string)
-			instance2 = scene.instance()
-			self.find_node("ModuleGroup").add_child(instance2)
-			instance2.position = Vector2(stepify(mouse_pos.x,18),stepify(mouse_pos.y,18))
-			instance2.rotation = rotation_safe
-			rotation_safe = 0
+			
+			if(isPlacable == true):
+			
+				$Inventory/Inventory/Items.remove_child(lastClickedElement)
+				fillInventory()
+				
+				self.remove_child(instance)
+				toggle = false
+				var scene_string = "res://Station_Scenes_copy/Station_Tile_" + str(module_type[0]) + ".tscn"
+				var scene = load(scene_string)
+				instance2 = scene.instance()
+				self.find_node("ModuleGroup").add_child(instance2)
+				instance2.position = Vector2(stepify(mouse_pos.x,18),stepify(mouse_pos.y,18))
+				instance2.rotation = rotation_safe
+				rotation_safe = 0
 			
 			
 func _process(delta):
 	
 	elapsed += delta
 	
-	if elapsed >  0.05 && toggle:
+	if elapsed >  2 && toggle:
 		elapsed  = 0
 		var vecInstance : Vector2 = Vector2(instance.position.x, instance.position.y)
 		var instanceCollisions = instance.get_child(2).get_children()
@@ -102,15 +117,39 @@ func _process(delta):
 					var y = colli.global_position.y
 						
 					for instanceColli in instanceCollisions:
+						
+						print("Positionen:")
+						print(x)
+						print(y)
+						
+						print("Positionen - Hand:")
+						print(instanceColli.get_parent().get_parent().global_position.x + instanceColli.position.x )
+						print(instanceColli.get_parent().get_parent().global_position.y)
+						
+						print("Positionen - Kollision - Hand:")
+						print(instanceColli.position.y )
+						
+						var localY
+						var localX 
+						
+						if(is_rotating == 0):
+							localY = instanceColli.position.y
+							localX = instanceColli.position.x
+						else:
+							localY = instanceColli.position.x
+							localX = instanceColli.position.y
+												
+						if(instanceColli.get_parent().get_parent().global_position.y + localY  == y && 
+							instanceColli.get_parent().get_parent().global_position.x + localX  == x):
+							#print("YIPPIE")
 							
-						if(instanceColli.get_parent().get_parent().global_position.y + instanceColli.position.y  == y && 
-							instanceColli.get_parent().get_parent().global_position.x + instanceColli.position.x  == x):
-							print("YIPPIE")
-						#
-						#Do some Magic
+							isPlacable = true
+							
+							currentLocation = instance.position							
+							
 								
 							#Grüne Outline
-							var currentSprite : AnimatedSprite = instance.get_children()[0]
+							var currentSprite = instance.get_children()[0]
 							var shader : Shader = load("res://Ressources/shaders/outline_green.tres")
 							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 							shaderMaterial.shader = shader
@@ -118,22 +157,30 @@ func _process(delta):
 								
 							break
 						
-						else:
+						elif(currentLocation != instance.position):
+							
+							#print("BOO")
+							
+							isPlacable = false
 							
 							#Rote Outline
-							var currentSprite : AnimatedSprite = instance.get_children()[0]
+							var currentSprite = instance.get_children()[0]
 							var shader : Shader = load("res://Ressources/shaders/outline_red.tres")
 							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 							shaderMaterial.shader = shader							
 							currentSprite.material = shaderMaterial
 					
 				pass
-		
-	
+				
 	if Input.is_action_just_pressed("ui_Module_rotation"):
 		
 		instance.rotation  += PI/2
 		rotation_safe += PI/2
+		if(is_rotating == 1):
+			is_rotating = 0
+		else:
+			is_rotating = 1
+		currentLocation = Vector2(0,0)
 		pass
 	
 
@@ -142,3 +189,35 @@ func _process(delta):
 		instance.position = Vector2(stepify(mouse_pos.x,18),stepify(mouse_pos.y,18))
 		
 		
+func fillInventory():
+	
+	var currentAmount = $Inventory/Inventory/Items.get_child_count()
+	var neededToFill = 4 - currentAmount
+	
+	for position in childrenPosition:
+		
+		var exists = false
+		
+		for item in $Inventory/Inventory/Items.get_children():
+			
+			# [-312,-104,104,312]
+			var possiblePosition = [-312,-104,104,312]
+			
+			if(position == item.position.x):
+				
+				exists = true
+			
+		if(exists == false):
+			
+			var test = int(rand_range(1, 14))
+			print(test)
+			
+			var scene_string = "res://Station_Scenes/Station_Tile_" + String(test) + ".tscn"
+			var scene = load(scene_string)
+			var newItem : Area2D = scene.instance()
+			$Inventory/Inventory/Items.add_child(newItem)
+			newItem.position = Vector2(position, 0)
+			newItem.scale = Vector2(2,2)
+			
+			
+			

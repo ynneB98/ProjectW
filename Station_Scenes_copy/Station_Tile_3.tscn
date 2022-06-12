@@ -7,7 +7,7 @@
 extents = Vector2( 8, 19 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 2 )
+extents = Vector2( 3, 2 )
 
 [node name="Area2D2" type="Area2D"]
 position = Vector2( 27, 27 )
@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -21,7 +21,7 @@ func _input(event):
 		for elem in $Inventory/Items.get_children():
 			
 			if(currentElement != elem):
-				var currentSprite : AnimatedSprite = elem.get_children()[0]
+				var currentSprite = elem.get_children()[0]
 				var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 				currentSprite.material = shaderMaterial
 				
@@ -32,7 +32,7 @@ func _input(event):
 				
 				if(currentElement == elem):
 					
-					var currentSprite : AnimatedSprite = elem.get_children()[0]
+					var currentSprite = elem.get_children()[0]
 					var shader : Shader = load("res://Ressources/shaders/outline.tres")
 					var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 					shaderMaterial.shader = shader

@@ -13,7 +13,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		EventBus.broadcast_signal("cancel_select",[module_type,active_state])
 		
 	if Input.is_action_just_pressed("ui_select_Module"):
-		EventBus.broadcast_signal("type",[module_type,active_state])
+		EventBus.broadcast_signal("type",[module_type,active_state, self])
 		var clickedObject = self;
 		
 func setModuleType (module_type):
