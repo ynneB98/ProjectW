@@ -1,0 +1,15 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+path="res://.import/Tutorial_nurText.gif-425367f65028d566c01c9415e2e133f6.tres"
+
+[deps]
+
+source_file="res://Sprites/GUI/Tutorial/Tutorial_nurText.gif"
+dest_files=[ "res://.import/Tutorial_nurText.gif-425367f65028d566c01c9415e2e133f6.tres" ]
+
+[params]
+
+Filter=false
+MipMaps=false

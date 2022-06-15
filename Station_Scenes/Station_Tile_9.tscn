@@ -9,21 +9,24 @@ extents = Vector2( 2, 3 )
 [node name="Area2D2" type="Area2D"]
 position = Vector2( 27, 27 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 18.0, 36.0, 54.0 ],
+"_edit_vertical_guides_": [ 18.0, 36.0, 54.0 ]
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -0.75, -1.87032 )
 scale = Vector2( 1.09375, 1.00781 )
-polygon = PoolVector2Array( -7.54286, -7.07442, -7.54286, 28.6465, 8.91429, 28.6465, 8.91429, 10.7861, 25.3714, 10.7861, 25.3714, -7.07442 )
+polygon = PoolVector2Array( -8.22857, -8.93025, -8.22857, 26.7908, 8.22857, 26.7908, 8.22857, 8.93026, 24.6857, 8.93026, 24.6857, -8.93025 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.76837e-07, 27 )
+position = Vector2( 0, 27 )
 rotation = 1.57079
 shape = SubResource( 2 )
 

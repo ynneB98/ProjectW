@@ -149,8 +149,8 @@ func _process(delta):
 							localY = instanceColli.position.y
 							localX = instanceColli.position.x
 						else:
-							localY = instanceColli.position.x
-							localX = instanceColli.position.y
+							localY = instanceColli.position.y
+							localX = instanceColli.position.x
 												
 						if(instanceColli.get_parent().get_parent().global_position.y + localY  == y && 
 							instanceColli.get_parent().get_parent().global_position.x + localX  == x):
@@ -182,8 +182,6 @@ func _process(delta):
 							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
 							shaderMaterial.shader = shader							
 							currentSprite.material = shaderMaterial
-					
-				pass
 				
 	if Input.is_action_just_pressed("ui_Module_rotation"):
 		
@@ -194,7 +192,18 @@ func _process(delta):
 		else:
 			is_rotating = 1
 		currentLocation = Vector2(0,0)
-		pass
+		
+		for collision in instance.get_child(2).get_children():
+			var distance_x = collision.position.x 
+			var distance_y = collision.position.y
+			
+			var new_distance_y = 0
+			var new_distance_x = 0
+			
+			
+			#Move By other offset to fake rotation
+			collision.position = Vector2(distance_y*-1,distance_x)
+
 	
 
 	if toggle:
