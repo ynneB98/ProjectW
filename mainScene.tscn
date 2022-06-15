@@ -51,13 +51,17 @@ extents = Vector2( 2, 3 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 315.0, 333.0, 369.0, 351.0 ],
+"_edit_vertical_guides_": [ 531.0, 549.0, 567.0, 585.0 ]
+}
 
 [node name="Space" type="AnimatedSprite" parent="."]
 modulate = Color( 0.75, 0.75, 0.75, 1 )
 position = Vector2( 640.623, 360.125 )
 scale = Vector2( 2.50174, 2.49913 )
 frames = SubResource( 4 )
-frame = 2
+frame = 13
 playing = true
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
@@ -102,6 +106,7 @@ valign = 1
 [node name="ScoreGIF" type="AnimatedSprite" parent="RessourceOverlay/ScoreLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 6 )
+frame = 1
 playing = true
 
 [node name="EnergyLabel" type="Label" parent="RessourceOverlay"]
@@ -137,7 +142,7 @@ valign = 1
 [node name="EnergyGIF" type="AnimatedSprite" parent="RessourceOverlay/EnergyLabel"]
 position = Vector2( -16, 16 )
 frames = ExtResource( 5 )
-frame = 6
+frame = 7
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -157,7 +162,7 @@ position = Vector2( 558, 342 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ModuleGroup/Area2D"]
 frames = ExtResource( 10 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Modul_Collision" type="CollisionShape2D" parent="ModuleGroup/Area2D"]
@@ -182,3 +187,49 @@ shape = SubResource( 3 )
 position = Vector2( 0, 27 )
 rotation = 1.5708
 shape = SubResource( 3 )
+
+[node name="Area2D2" type="Area2D" parent="ModuleGroup/Area2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D9" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( 18, 18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D8" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( 0, 18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D7" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( -18, 18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( 18, 0 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( -18, 0 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( 18, -18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D5" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( 0, -18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )
+
+[node name="Polygon2D6" type="Polygon2D" parent="ModuleGroup/Area2D/Area2D2"]
+position = Vector2( -18, -18 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -9, -9, -9, 9, 9, 9, 9, -9 )

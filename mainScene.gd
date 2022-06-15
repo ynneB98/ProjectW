@@ -79,8 +79,8 @@ func ClickEventHandler(module_type):
 				var scene = load(scene_string)
 				instance2 = scene.instance()
 				
-				print (energy)
-				print(instance2.energy)
+				#print (energy)
+				#print(instance2.energy)
 				
 				
 				#Score + Energyverwaltung
@@ -122,11 +122,25 @@ func _process(delta):
 		
 		for module in self.find_node("ModuleGroup").get_children():
 			var vec2 : Vector2 = Vector2(module.position.x, module.position.y) 
-				
+			var is_occupied = false
 			var distance = vecInstance.distance_to(vec2)
 				
 			if(distance <= 300):
+				
+				for mod_child in module.get_child(3).get_children():
 					
+					for child in instance.get_child(3).get_children():
+						if child.global_position ==  mod_child.global_position:
+							var currentSprite = instance.get_children()[0]
+							var shader : Shader = load("res://Ressources/shaders/outline_red.tres")
+							var shaderMaterial : ShaderMaterial = ShaderMaterial.new()
+							shaderMaterial.shader = shader							
+							currentSprite.material = shaderMaterial
+							is_occupied = true
+							
+					pass
+				pass
+				
 				var i = 1
 					
 				for collision in module.get_child(2).get_children():
@@ -153,7 +167,7 @@ func _process(delta):
 							localX = instanceColli.position.x
 												
 						if(instanceColli.get_parent().get_parent().global_position.y + localY  == y && 
-							instanceColli.get_parent().get_parent().global_position.x + localX  == x):
+							instanceColli.get_parent().get_parent().global_position.x + localX  == x && !is_occupied):
 							#print("YIPPIE")
 							
 							isPlacable = true
@@ -183,7 +197,17 @@ func _process(delta):
 							shaderMaterial.shader = shader							
 							currentSprite.material = shaderMaterial
 				
+				
 	if Input.is_action_just_pressed("ui_Module_rotation"):
+		
+		
+		for child in instance.get_child(3).get_children():
+			
+			child.position = Vector2(child.position.y*-1,child.position.x)
+			
+		#	pass
+		
+		#
 		
 		instance.rotation  += PI/2
 		rotation_safe += PI/2
